@@ -100,10 +100,14 @@ Use the Production URL to receive real form submissions.
 
 ## 📸 Project Screenshots
 
-<img width="987" height="590" alt="Screenshot 2026-11-22 122609" src="https://github.com/user-attachments/assets/92746ce3-68d5-44d1-93a2-26e17ae46306" />
-Complete n8n workflow.
-<img width="559" height="267" alt="Screenshot 2026-11-22 123509" src="https://github.com/user-attachments/assets/6ec67a4e-2247-48c7-8ce4-953ea4efe530" />
-Collected data in Google Sheets.
+Add your project screenshots here:
+
+- <img width="1092" height="483" alt="Screenshot 2026-11-22 124334" src="https://github.com/user-attachments/assets/1b5fdcf3-48a6-4706-9377-9a68699943a1" />
+ – Complete n8n workflow.
+- <img width="483" height="874" alt="Screenshot 2026-11-22 124400" src="https://github.com/user-attachments/assets/db1424e1-428f-445f-96c7-2f88b0126528" />
+ – User submission form.
+-<img width="989" height="325" alt="Screenshot 2026-11-22 124540" src="https://github.com/user-attachments/assets/2a37e516-340c-4b40-86a4-738ac6f4d7c9" />
+ – Collected data in Google Sheets.
 
 ## 🎯 Learning Outcomes
 
@@ -131,7 +135,7 @@ Through this project, I learned:
 
 Computer Science & Technology | Automation Enthusiast
 
-GitHub:https://github.com/sayedmonawarrakib
+GitHub: https://github.com/sayedmonawarrakib
 
 ## 📄 License
 
