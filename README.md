@@ -100,7 +100,7 @@ Use the Production URL to receive real form submissions.
 
 ## 📸 Project Screenshots
 
-Add your project screenshots here:
+project screenshots here:
 
 - <img width="1092" height="483" alt="Screenshot 2026-11-22 124334" src="https://github.com/user-attachments/assets/1b5fdcf3-48a6-4706-9377-9a68699943a1" />
  – Complete n8n workflow.
