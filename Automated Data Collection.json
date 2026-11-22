@@ -1,0 +1,243 @@
+{
+  "name": "Automated Data Collection",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Customer Information Form",
+        "formDescription": "Please submit your information",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Full Name : "
+            },
+            {
+              "fieldLabel": "Email Address : ",
+              "fieldType": "email"
+            },
+            {
+              "fieldLabel": "Gender : ",
+              "fieldType": "radio",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Male"
+                  },
+                  {
+                    "option": "Female"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "did you agree with our police?",
+              "fieldType": "checkbox",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "Yes"
+                  },
+                  {
+                    "option": "No"
+                  }
+                ]
+              }
+            },
+            {
+              "fieldLabel": "BOD",
+              "fieldType": "date"
+            },
+            {
+              "fieldLabel": "Close up Photo",
+              "fieldType": "file"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [
+        0,
+        0
+      ],
+      "id": "70889cf3-8520-4bba-96dc-5ab52f0e8f6f",
+      "name": "On form submission",
+      "webhookId": "3d149bf6-4582-4cdf-8c8e-abda800b394e"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "d228fafa-eea5-489d-bb1e-f67d60422d8d",
+              "name": "Full Name : ",
+              "value": "={{ $json['Full Name : '] }}",
+              "type": "string"
+            }
+          ]
+        },
+        "includeOtherFields": true,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        224,
+        0
+      ],
+      "id": "eaeb0acf-4d73-44ff-8d79-d49baa3ba738",
+      "name": "Edit Fields"
+    },
+    {
+      "parameters": {
+        "operation": "appendOrUpdate",
+        "documentId": {
+          "__rl": true,
+          "value": "1dfnFPndrtn7od-y5IoP0Ly3DlRgx8VLBXIqP0Lb-0CM",
+          "mode": "list",
+          "cachedResultName": "Customer Information Database",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dfnFPndrtn7od-y5IoP0Ly3DlRgx8VLBXIqP0Lb-0CM/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1dfnFPndrtn7od-y5IoP0Ly3DlRgx8VLBXIqP0Lb-0CM/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Full Name ": "={{ $json['Full Name : '] }}",
+            "BOD": "={{ $json.BOD }}",
+            "Email Address": "={{ $json['Email Address : '] }}",
+            "Gender": "={{ $json['Gender : '] }}",
+            "Image": "={{ $json['Close up Photo'][0] }}",
+            "police :": "={{ $json['did you agree with our police?'][0] }}"
+          },
+          "matchingColumns": [
+            "Full Name "
+          ],
+          "schema": [
+            {
+              "id": "Full Name ",
+              "displayName": "Full Name ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "BOD",
+              "displayName": "BOD",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email Address",
+              "displayName": "Email Address",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Gender",
+              "displayName": "Gender",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "police :",
+              "displayName": "police :",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Image",
+              "displayName": "Image",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        448,
+        0
+      ],
+      "id": "0aa692cf-7cad-4756-b5b3-fed0c5953fa9",
+      "name": "Append or update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "AFCvK0lOYkrFhWoZ",
+          "name": "Google Sheets account"
+        }
+      },
+      "disabled": true
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Edit Fields": {
+      "main": [
+        [
+          {
+            "node": "Append or update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "dbde7368-7b48-456a-8fbb-b2eb8ea4dc2d",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "a9ce9eea103e5087bab0ac611f60bf797a172df2e0543b7cd54af9f8d164b63c"
+  },
+  "nodeGroups": [],
+  "id": "W3XNTn4falhRyX0v",
+  "tags": []
+}
